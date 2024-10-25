@@ -1,7 +1,7 @@
-# Currency Conversion Application
+# Currency Conversion 
 
 
-This project is a simple currency conversion application built using Python. It leverages the Open Exchange Rates API to fetch real-time and historical exchange rates, allowing users to convert amounts between different currencies. The application also stores conversion history in a SQLite database for future reference.
+This project is a simple currency conversion built using Python. It leverages the Open Exchange Rates API to fetch real-time and historical exchange rates, allowing users to convert amounts between different currencies. The application also stores conversion history in a SQLite database for future reference.
 
 ## Features
 - **Real-time Currency Conversion:** Convert amounts between various currencies using the latest exchange rates.
