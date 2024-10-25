@@ -103,7 +103,7 @@ def convert_currency(amount, from_currency, to_currency):
         converted_amount = amount_in_usd * rates[to_currency]
         return converted_amount, exchange_rate
     except KeyError as e:
-        print("Error : Currency not found in rates")
+        print("Error : Currency not found in")
         return None, None
 
 
@@ -114,13 +114,13 @@ def get_historical_rates(from_currency, to_currency):
         date = (datetime.now() - timedelta(days=past_days)).strftime("%Y-%m-%d")
         url = f"{API_URL}historical/{date}.json?app_id={API_KEY}"
         response = requests.get(url)
-        rates = response.json().get("rates", {})
+        rates = response.json()['rates']
 
         if from_currency == "USD":
             historical_rates[date] = rates[to_currency]
         else:
-            rate_to_usd = rates.get(from_currency, None)
-            rates_to_target = rates.get(to_currency, None)
+            rate_to_usd = rates[from_currency]
+            rates_to_target = rates[to_currency]
             if rate_to_usd and rates_to_target:
                 historical_rates[date] = rates_to_target / rate_to_usd
     return historical_rates
